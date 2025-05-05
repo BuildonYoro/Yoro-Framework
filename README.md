@@ -1,4 +1,4 @@
-# :brain: Yoro: Agent Symbolic Learning Framework
+# <p align="center">Yoro Framework</p>
 
 ![Banner](./banner.jpg) <!-- Replace with your actual banner image path -->
 
