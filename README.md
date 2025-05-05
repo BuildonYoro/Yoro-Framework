@@ -58,4 +58,4 @@ Yoro's training process follows a symbolic version of neural network learning:
 ### From GitHub
 
 ```bash
-pip install git+https://github.com/YoroFramework/Yoro
+pip install git+https://github.com/Yoro-Framework/Yoro
