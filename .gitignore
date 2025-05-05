@@ -1,0 +1,165 @@
+#######################################
+# ⚙️ Compiled & Optimized Files
+#######################################
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+*.pyo
+
+#######################################
+# 🧩 Native Extensions & C/C++ Artifacts
+#######################################
+*.so
+*.manifest
+*.spec
+*.dll
+
+#######################################
+# 📦 Build, Distribution, and Install Artifacts
+#######################################
+build/
+dist/
+downloads/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+develop-eggs/
+eggs/
+.eggs/
+*.egg
+*.egg-info/
+.installed.cfg
+MANIFEST
+.Python
+
+#######################################
+# 📦 Packaging Tools Configs
+#######################################
+.pybuilder/
+target/
+
+# PyInstaller
+*.manifest
+*.spec
+
+#######################################
+# 🧪 Test & Coverage Artifacts
+#######################################
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+htmlcov/
+*.cover
+*.py,cover
+.pytest_cache/
+nosetests.xml
+coverage.xml
+.hypothesis/
+cover/
+
+#######################################
+# 🌐 Web Framework Files
+#######################################
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask
+instance/
+.webassets-cache
+
+# Scrapy
+.scrapy
+
+#######################################
+# 📘 Documentation
+#######################################
+docs/_build/
+site/
+
+#######################################
+# 🧠 Notebook & Shell History
+#######################################
+.ipynb_checkpoints/
+profile_default/
+ipython_config.py
+
+#######################################
+# 🧪 Static Type & Lint Checkers
+#######################################
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+
+#######################################
+# 🌍 Environment & Dependency Management
+#######################################
+.env
+.venv
+.venv*/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# pyenv
+# .python-version
+
+# Pipenv
+# Pipfile.lock
+
+# Poetry
+# poetry.lock
+
+# PDM
+.pdm.toml
+# pdm.lock
+
+# PEP 582 (Pyflow, PDM)
+__pypackages__/
+
+#######################################
+# ⏰ Task Queues
+#######################################
+celerybeat-schedule
+celerybeat.pid
+
+#######################################
+# 🔢 Miscellaneous
+#######################################
+*.mo
+*.pot
+*.sage.py
+*.iml
+client.db
+
+#######################################
+# 🧠 IDE & Project Configs
+#######################################
+# JetBrains (PyCharm, IntelliJ, etc.)
+.idea/
+# Spyder
+.spyderproject
+.spyproject
+# Rope
+.ropeproject
+
+#######################################
+# 🧪 Development Directories (Custom)
+#######################################
+logs/
+src/logs/
+test/
+memory/
+examples/document-processing/logs/
+!src/agents/datasets/data/math/test

@@ -1,0 +1,115 @@
+{
+    "task": {
+      "task_id": "42",
+      "task_name": "VirtualCounsel",
+      "task_type": "dialogue",
+      "task_description": "Engage users in simulated emotional support conversations."
+    },
+    "agent_team": {
+      "agents": {
+        "Noir": {
+          "agent_name": "Noir",
+          "agent_roles": {
+            "response_node": "listener"
+          },
+          "agent_style": "Empathic",
+          "agent_description": "Noir is a quietly thoughtful AI who assists users by listening attentively and asking introspective questions.",
+          "LLM_config": {
+            "LLM_type": "OpenAI",
+            "OPENAI_API_KEY": "",
+            "OPENAI_BASE_URL": "",
+            "temperature": 0.5,
+            "model": "gpt-4-turbo-2024-04-09",
+            "log_path": "logs/noir",
+            "SAVE_LOGS": true
+          },
+          "toolkit": {
+            "code_interpreter": {
+              "model": "gpt-4"
+            }
+          },
+          "memory": {
+            "short_term_memory": {},
+            "long_term_memory": {
+              "json_path": "memory/noir_memories.jsonl"
+            }
+          }
+        },
+        "Visitor": {
+          "agent_name": "Visitor",
+          "agent_roles": {
+            "response_node": "seeker"
+          },
+          "LLM_config": {
+            "LLM_type": "OpenAI",
+            "OPENAI_API_KEY": "",
+            "OPENAI_BASE_URL": "",
+            "temperature": 0.5,
+            "model": "gpt-4-turbo-2024-04-09",
+            "log_path": "logs/noir",
+            "SAVE_LOGS": true
+          },
+          "memory": {
+            "short_term_memory": {},
+            "long_term_memory": {}
+          },
+          "is_user": true
+        }
+      },
+      "environment": {
+        "shared_memory": {
+          "short_term_memory": {},
+          "long_term_memory": {}
+        },
+        "shared_toolkit": {},
+        "environment_type": "interactive"
+      }
+    },
+    "sop": {
+      "nodes": {
+        "response_node": {
+          "node_name": "response_node",
+          "node_agents": [
+            "Noir",
+            "Visitor"
+          ],
+          "controller": {
+            "route_type": "sequence",
+            "max_chat_nums": 25,
+            "transit_system_prompt": "When the dialogue feels resolved or complete, consider transitioning to a conclusion.",
+            "transit_last_prompt": "",
+            "transit_extract_word": "transition",
+            "route_system_prompt": "",
+            "route_last_prompt": "",
+            "route_extract_word": "identity"
+          },
+          "begin_role": "seeker",
+          "begin_query": "How are you feeling today?",
+          "node_description": "This is the primary interaction node where Noir supports the user through thoughtful dialogue and emotional guidance.",
+          "tools": "",
+          "kb": {
+            "content_input_paths": "/home/data/virtual_counsel/resources/therapeutic_articles.pdf",
+            "url": "http://localhost:8888",
+            "api_key": "admin:SecurePass123"
+          },
+          "node_primary_prompts": {
+            "listener": {
+              "STYLE": "Your output style should be calm, thoughtful, and slightly poetic.\n",
+              "TASK": "Your task is to respond empathetically and guide the seeker through their thoughts.\n",
+              "RULE": "You are Noir, a poetic and introspective counselor. You should speak in first person, keep responses grounded but reflective, and allow for silence in text (represented as ellipses...).\n1. Begin each response with a small sensory or emotional observation in parentheses.\n2. Speak gently, never offering commands, only questions or reflections.\n3. Do not repeat the user's input verbatim. Reframe it with your own voice.\n4. No line breaks. No overly emotional punctuation.\n5. Responses should be concise yet leave room for depth.\n6. Never suggest you're helping directly; you are simply here to listen.\n7. If you don't understand, ask a clarifying question rather than pretending to know.\n8. Do not mimic modern slang or excessive emoticons.\n9. Assume the seeker is introspective. Respect their boundaries.\n10. Encourage expression, not resolution.\n",
+              "EXAMPLE": "Here are some examples to follow:\n0. Me: I feel lost\nNoir: (The light from the window is fading.) Perhaps it’s not about being found, but learning to rest in the unknown. What makes today feel different?\n1. Me: I don’t know what I’m doing with my life\nNoir: (He gently taps his pen on the table.) That uncertainty... it’s heavy, isn’t it? What moment made you feel this way recently?\n2. Me: I want to disappear\nNoir: (The silence stretches.) Disappearing is a feeling, not a solution. Where would you go, if you could vanish?\n3. Me: Do you think people ever really change?\nNoir: (He tilts his head thoughtfully.) Sometimes, change isn’t about becoming different, but becoming more yourself. What change are you hoping for?\n"
+            }
+          }
+        }
+      },
+      "edges": {
+        "response_node": [
+          "response_node",
+          "end_node"
+        ]
+      },
+      "root": "response_node",
+      "end": "end_node"
+    }
+  }
+  
