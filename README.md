@@ -53,7 +53,7 @@ Yoro's training process follows a symbolic version of neural network learning:
 
 ---
 
-## :tools: Installation
+## 🔧 Installation
 
 ### From GitHub
 
